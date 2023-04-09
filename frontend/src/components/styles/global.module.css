@@ -1,0 +1,12 @@
+:root {
+  --tosca: #00bfa5;
+}
+
+.card_row {
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  justify-content: center;
+  padding: 0 50px;
+  margin:50px auto;
+}
