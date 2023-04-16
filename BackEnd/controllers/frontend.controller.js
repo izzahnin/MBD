@@ -178,6 +178,7 @@ exports.tambahDataKeranjang = async (req, res) => {
         res.send({
           code: 200,
           message: "Berhasil menambahkan keranjang",
+          // data: result,
         });
       })
       .catch((err) => {
