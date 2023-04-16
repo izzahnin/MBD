@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditProduct = () => {
-  const [productName, setProductName] = useState("");
+  const [title, setTitle] = useState("");
   const [stock, setStock] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -16,8 +16,8 @@ const EditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault(); //mencegah page reload ketika submit
     try {
-      await axios.patch(`http://localhost:5000/products/${id}`, {
-        productName,
+      await axios.patch(`http://localhost:3000/produk/${id}`, {
+        title,
         stock,
       });
       navigate("/");
@@ -29,8 +29,8 @@ const EditProduct = () => {
 
   //method untuk mengambil data product berdasarkan id
   const getProductById = async () => {
-    const response = await axios.get(`http://localhost:5000/products/${id}`);
-    setProductName(response.data.productName);
+    const response = await axios.get(`http://localhost:3000/produk/${id}`);
+    setTitle(response.data.Title);
     setStock(response.data.stock);
   };
 
@@ -41,7 +41,7 @@ const EditProduct = () => {
           <div className="field">
             <label className="label">Product Name</label>
             <div className="control">
-              <input type="text" className="input" placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+              <input type="text" className="input" placeholder="Product Name" value={title} onChange={(e) => setTitle(e.target.value)} />
             </div>
           </div>
           <div className="field">
